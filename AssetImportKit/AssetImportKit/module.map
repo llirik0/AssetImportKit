@@ -1,0 +1,206 @@
+// Module Map
+
+module cimport [system][extern_c] {
+    
+    header "Dependencies/Assimp/Assimp C API/cimport.h"
+    export *
+}
+
+module light [system][extern_c] {
+    
+    header "Dependencies/Assimp/Assimp C API/light.h"
+    export *
+}
+
+module material [system][extern_c] {
+    
+    header "Dependencies/Assimp/Assimp C API/material.h"
+    export *
+}
+
+module postprocess [system][extern_c] {
+    
+    header "Dependencies/Assimp/Assimp C API/postprocess.h"
+    export *
+}
+
+module PostProcessingFlags [system][extern_c] {
+    
+    header "Dependencies/Assimp/Assimp C API/PostProcessingFlags.h"
+    export *
+}
+
+module scene [system][extern_c] {
+    
+    header "Dependencies/Assimp/Assimp C API/scene.h"
+    export *
+}
+
+//module ai_assert [system][extern_c] {
+//
+//    header "Dependencies/Assimp/Assimp C API/ai_assert.h"
+//    export *
+//}
+//
+//module anim [system][extern_c] {
+//
+//    header "Dependencies/Assimp/Assimp C API/anim.h"
+//    export *
+//}
+//
+//module camera [system][extern_c] {
+//
+//    header "Dependencies/Assimp/Assimp C API/camera.h"
+//    export *
+//}
+//
+//module cexport [system][extern_c] {
+//
+//    header "Dependencies/Assimp/Assimp C API/cexport.h"
+//    export *
+//}
+//
+//module cfileio [system][extern_c] {
+//
+//    header "Dependencies/Assimp/Assimp C API/cfileio.h"
+//    export *
+//}
+//
+//module color4 [system][extern_c] {
+//
+//    header "Dependencies/Assimp/Assimp C API/color4.h"
+//    export *
+//}
+//
+//module DefaultLogger [system] {
+//
+//    header "Dependencies/Assimp/Assimp C API/DefaultLogger.hpp"
+//    export *
+//}
+//
+//module defs [system][extern_c] {
+//
+//    header "Dependencies/Assimp/Assimp C API/defs.h"
+//    export *
+//}
+//
+//module Exporter [system] {
+//
+//    header "Dependencies/Assimp/Assimp C API/Exporter.hpp"
+//    export *
+//}
+//
+//module Importer [system] {
+//
+//    header "Dependencies/Assimp/Assimp C API/Importer.hpp"
+//    export *
+//}
+//
+//module importerdesc [system][extern_c] {
+//
+//    header "Dependencies/Assimp/Assimp C API/importerdesc.h"
+//    export *
+//}
+//
+//module IOStream [system] {
+//
+//    header "Dependencies/Assimp/Assimp C API/IOStream.hpp"
+//    export *
+//}
+//
+//module IOSystem [system] {
+//
+//    header "Dependencies/Assimp/Assimp C API/IOSystem.hpp"
+//    export *
+//}
+//
+//module Logger [system] {
+//
+//    header "Dependencies/Assimp/Assimp C API/Logger.hpp"
+//    export *
+//}
+//
+//module LogStream [system] {
+//
+//    header "Dependencies/Assimp/Assimp C API/LogStream.hpp"
+//    export *
+//}
+//
+//module matrix3x3 [system][extern_c] {
+//
+//    header "Dependencies/Assimp/Assimp C API/matrix3x3.h"
+//    export *
+//}
+//
+//module matrix4x4 [system][extern_c] {
+//
+//    header "Dependencies/Assimp/Assimp C API/matrix4x4.h"
+//    export *
+//}
+//
+//module mesh [system][extern_c] {
+//
+//    header "Dependencies/Assimp/Assimp C API/mesh.h"
+//    export *
+//}
+//
+//module metadata [extern_c] {
+//
+//    header "Dependencies/Assimp/Assimp C API/metadata.h"
+//    export *
+//}
+//
+//module NullLogger [system] {
+//
+//    header "Dependencies/Assimp/Assimp C API/NullLogger.hpp"
+//    export *
+//}
+//
+//module ProgressHandler [system] {
+//
+//    header "Dependencies/Assimp/Assimp C API/ProgressHandler.hpp"
+//    export *
+//}
+//
+//module quaternion [system][extern_c] {
+//
+//    header "Dependencies/Assimp/Assimp C API/quaternion.h"
+//    export *
+//}
+//
+//module texture [system][extern_c] {
+//
+//    header "Dependencies/Assimp/Assimp C API/texture.h"
+//    export *
+//}
+//
+//module types [system][extern_c] {
+//
+//    header "Dependencies/Assimp/Assimp C API/types.h"
+//    export *
+//}
+//
+//module vector2 [system][extern_c] {
+//
+//    header "Dependencies/Assimp/Assimp C API/vector2.h"
+//    export *
+//}
+//
+//module vector3 [system][extern_c] {
+//
+//    header "Dependencies/Assimp/Assimp C API/vector3.h"
+//    export *
+//}
+//
+//module version [system][extern_c] {
+//
+//    header "Dependencies/Assimp/Assimp C API/version.h"
+//    export *
+//}
+
+//module assimpModule [system][extern_c] {
+//
+//    header "Dependencies/Assimp/Assimp C API/Assimp.h"
+//    export *
+//}
+
