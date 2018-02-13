@@ -30,8 +30,6 @@ Requirements
 Usage
 ---
 
-First of all you need go to `/Asset Import Kit/AssetImportKit/AssetImportKit/Dependencies/Assimp/ /Asset Import` and  unarchive `Assimp Libraries.zip` file. Then you can build the [3DViewer](3DViewer/README.md) of SceneKitAssetImport example projects in the Workspace.
-
 To use the library in your projects just build the iOS of macOS version of the framework and grab it from the target folder of the AssetImportKit project.
 
 Carthage support will be added in future.
