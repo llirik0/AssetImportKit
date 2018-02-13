@@ -1,11 +1,11 @@
-![3DViewer](/Media/3DViewer.png)
+![3DViewer](Media/3DViewer.png)
 
 **3DViewer** is small demo app for downloading 3d models and showing them in [`SceneKit`](https://developer.apple.com/scenekit/) at runtime.
 
 The supported formats are: **3d, 3ds, ac, b3d, bvh, cob, dae, dxf, ifc, irr, md2, md5mesh, md5anim, m3sd, nff, obj, off, mesh, xml, ply, q3o, q3s, raw, smd, stl, wrl, xgl, zgl, fbx, md3**.
 
 <p align="center">
-    <img src="/Media/3DViewer.gif", width="480">
+    <img src="Media/3DViewer.gif", width="480">
 </p>
 
 For better results please use models created in **3dsMax 2010**.
