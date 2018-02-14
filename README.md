@@ -38,7 +38,7 @@ Note for `iOS` builds: if you are developing an `iOS` application, set the `Enab
 
 Demos
 ---
-The repository includes 2 small demos for macOS and iOS.
+This repository includes 2 small demos for macOS and iOS.
 
 <p align="center">
     <img src="Media/Example Apps.png", width="700">
