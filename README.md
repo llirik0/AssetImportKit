@@ -41,7 +41,7 @@ Demos
 The repository includes 2 small demos for macOS and iOS.
 
 <p align="center">
-    <img src="Media/Example Apps.png", width="480">
+    <img src="Media/Example Apps.png", width="600">
 </p>
 
 
