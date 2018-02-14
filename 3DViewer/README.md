@@ -5,7 +5,7 @@
 The supported formats are: **3d, 3ds, ac, b3d, bvh, cob, dae, dxf, ifc, irr, md2, md5mesh, md5anim, m3sd, nff, obj, off, mesh, xml, ply, q3o, q3s, raw, smd, stl, wrl, xgl, zgl, fbx, md3**.
 
 <p align="center">
-    <img src="Media/3DViewer demo.jpeg", width="320">
+    <img src="Media/3DViewer Screenshot.png", width="320">
 </p>
 
 For better results please use models created in **3dsMax 2010**.

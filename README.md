@@ -1,4 +1,4 @@
-![AssetImportKit](AssetImportKit.png)
+![AssetImportKit](Media/AssetImportKit.png)
 =========
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
@@ -35,6 +35,15 @@ To use the library in your projects just build the iOS of macOS version of the f
 Carthage support will be added in future.
 
 Note for `iOS` builds: if you are developing an `iOS` application, set the `Enable Bitcode` under `Build Settings->Build Options` of your target to `NO`.
+
+Demos
+---
+The repository includes 2 small demos for macOS and iOS.
+
+<p align="center">
+    <img src="Media/Example Apps.png", width="480">
+</p>
+
 
 License
 ---

@@ -167,36 +167,10 @@ var VirtualObjectsFilePath: String {
         } else {
             
             let assetImporter = AssetImporter()
-            let fileURL = URL(fileURLWithPath: filePath as String)
-            let assetImporterScene = assetImporter.importScene(filePath as String, postProcessFlags: AssetImporterPostProcessSteps(rawValue:
-                aiProcessPreset_TargetRealtime_MaxQuality
-                ))
-            
+            let assetImporterScene = assetImporter.importScene(filePath as String, postProcessFlags: AssetImporterPostProcessSteps(rawValue: AssetImporterPostProcessSteps.process_FlipUVs.rawValue | AssetImporterPostProcessSteps.process_Triangulate.rawValue))
             for childNode in (assetImporterScene?.modelScene?.rootNode.childNodes)! {
                 node.addChildNode(childNode)
             }
-            
-//            let animationKeys = assimpScene?.animationKeys()
-//            // If multiple animations exist, load the first animation
-//            if let numberOfAnimationKeys = animationKeys?.count {
-//                if numberOfAnimationKeys > 0 {
-//                    let settings = SCNAssimpAnimSettings()
-//                    settings.repeatCount = 100
-//                    
-//                    let key = animationKeys![0] as! String
-//                    let eventBlock: SCNAnimationEventBlock = { animation, animatedObject, playingBackwards in
-//                        
-//                        return
-//                    }
-//                    let animEvent = SCNAnimationEvent(keyTime: 0.1, block: eventBlock)
-//                    let animEvents: [SCNAnimationEvent]  = [animEvent]
-//                    settings.animationEvents = animEvents
-//                    
-//                    let animation = assimpScene?.animationScenes(forKey: key)
-//                    node.addAnimationScene(animation, forKey: key, with: settings)
-//                    
-//                }
-//            }
         }
         
         return node

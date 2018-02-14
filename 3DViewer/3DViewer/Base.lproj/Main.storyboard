@@ -171,7 +171,7 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GT6-ZJ-can">
-                                                        <rect key="frame" x="10" y="10" width="256" height="68"/>
+                                                        <rect key="frame" x="9" y="10" width="256" height="68"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Point cloud size" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ZI-fK-iax" userLabel="VIO cloud size">
                                                                 <rect key="frame" x="0.0" y="0.0" width="256" height="16"/>
@@ -218,14 +218,14 @@
                                 </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Sn-yJ-uJR">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="22"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="bq0-ZM-rhD">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="22"/>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Sn-yJ-uJR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bq0-ZM-rhD">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="6Zk-tA-XZf"/>
+                                    <constraint firstAttribute="height" constant="20" id="gGj-ly-Mef"/>
                                 </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
@@ -233,7 +233,6 @@
                         <color key="backgroundColor" red="0.17449867960000001" green="0.174389882" blue="0.17654124660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="SuF-Os-zmb" firstAttribute="trailing" secondItem="E6c-py-dvH" secondAttribute="trailing" id="35g-18-nn3"/>
-                            <constraint firstAttribute="trailing" secondItem="8Sn-yJ-uJR" secondAttribute="trailing" id="644-Ek-m3e"/>
                             <constraint firstItem="BgI-fb-Vqi" firstAttribute="trailing" secondItem="E6c-py-dvH" secondAttribute="trailing" constant="-15" id="6c1-k7-y99"/>
                             <constraint firstAttribute="bottom" secondItem="E6c-py-dvH" secondAttribute="bottom" id="6h6-BI-mhL"/>
                             <constraint firstItem="E6c-py-dvH" firstAttribute="top" secondItem="RLh-bf-1c3" secondAttribute="top" id="7gH-DS-Crg"/>
@@ -242,8 +241,8 @@
                             <constraint firstItem="GBj-4O-Whc" firstAttribute="trailing" secondItem="zQ6-AT-xDt" secondAttribute="trailing" constant="16" id="D6x-sl-neO"/>
                             <constraint firstItem="GBj-4O-Whc" firstAttribute="bottom" secondItem="qI1-of-tgS" secondAttribute="bottom" constant="15" id="EoQ-R6-wLs"/>
                             <constraint firstItem="9e0-zv-RiN" firstAttribute="top" secondItem="E6c-py-dvH" secondAttribute="top" constant="35" id="FTS-AH-WBr"/>
-                            <constraint firstItem="8Sn-yJ-uJR" firstAttribute="top" secondItem="RLh-bf-1c3" secondAttribute="top" id="G1k-Dp-jb8"/>
                             <constraint firstItem="j8v-6q-UBb" firstAttribute="trailing" secondItem="E6c-py-dvH" secondAttribute="trailing" constant="-15" id="Iz6-94-ZyB"/>
+                            <constraint firstItem="8Sn-yJ-uJR" firstAttribute="leading" secondItem="RLh-bf-1c3" secondAttribute="leading" id="JXB-hl-QtS"/>
                             <constraint firstItem="BgI-fb-Vqi" firstAttribute="leading" secondItem="9e0-zv-RiN" secondAttribute="trailing" constant="15" id="MwJ-LS-qaQ"/>
                             <constraint firstItem="q5A-xD-w2H" firstAttribute="bottom" secondItem="E6c-py-dvH" secondAttribute="bottom" id="NdC-Ig-ZW6"/>
                             <constraint firstItem="mHW-JQ-uOv" firstAttribute="bottom" secondItem="E6c-py-dvH" secondAttribute="bottom" id="Nov-Ar-ZZv"/>
@@ -255,7 +254,9 @@
                             <constraint firstItem="ovj-IH-BIq" firstAttribute="centerY" secondItem="RLh-bf-1c3" secondAttribute="centerY" id="Wul-qa-Jm0"/>
                             <constraint firstItem="mHW-JQ-uOv" firstAttribute="leading" secondItem="E6c-py-dvH" secondAttribute="leading" id="YbV-6m-kVC"/>
                             <constraint firstItem="xcf-ic-uGo" firstAttribute="centerX" secondItem="GBj-4O-Whc" secondAttribute="centerX" id="ZCe-ld-yQW"/>
+                            <constraint firstAttribute="trailing" secondItem="8Sn-yJ-uJR" secondAttribute="trailing" id="dc8-hU-qkJ"/>
                             <constraint firstItem="SPB-Sb-hjO" firstAttribute="bottom" secondItem="E6c-py-dvH" secondAttribute="bottom" id="fjf-Mj-ALG"/>
+                            <constraint firstItem="8Sn-yJ-uJR" firstAttribute="top" secondItem="RLh-bf-1c3" secondAttribute="top" id="hRb-Jh-gNU"/>
                             <constraint firstItem="9e0-zv-RiN" firstAttribute="leading" secondItem="E6c-py-dvH" secondAttribute="leading" constant="49" id="iIf-WZ-kZj"/>
                             <constraint firstItem="GBj-4O-Whc" firstAttribute="trailing" secondItem="E6c-py-dvH" secondAttribute="trailing" id="lHd-lf-g1u"/>
                             <constraint firstItem="ovj-IH-BIq" firstAttribute="leading" secondItem="GBj-4O-Whc" secondAttribute="leading" constant="16" id="lOL-gJ-7hS"/>
