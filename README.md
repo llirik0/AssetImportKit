@@ -2,7 +2,7 @@
 =========
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
-**AssetImportKit** is a cross platform library (macOS, iOS) that coverts the files supported by [Assimp](https://github.com/assimp/assimp) to [Scene Kit](https://developer.apple.com/reference/scenekit) scenes. This library was written as more stable pure Swift version of AssimpKit which makes it possible to use it in Swift projects without any problems.
+**AssetImportKit** is a cross platform library (macOS, iOS) that coverts the files supported by [Assimp](https://github.com/assimp/assimp) to [SceneKit](https://developer.apple.com/reference/scenekit) scenes. This library was written as more stable pure Swift version of AssimpKit which makes it possible to use it in Swift projects without any problems.
 
 Features
 ---
