@@ -4,6 +4,8 @@
 
 **AssetImportKit** is a cross platform library (macOS, iOS) that coverts the files supported by [Assimp](https://github.com/assimp/assimp) to [Scene Kit](https://developer.apple.com/reference/scenekit) scenes. This library was written as more stable pure Swift version of AssimpKit which makes it possible to use it in Swift projects without any problems.
 
+![AssetImportKit_Demonstration](Media/AssetImportKit_Demonstration.png)
+
 Features
 ---
 

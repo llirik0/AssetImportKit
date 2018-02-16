@@ -205,9 +205,8 @@ import scene
          Make SCNGeometry
          ---------------------------------------------------------------------
          */
-        var nVertices = findNumVertices(in: aiNode, in: aiScene)
-        let nVerticesData = NSData(bytes: &nVertices, length: MemoryLayout.stride(ofValue: nVertices)) as Data
-        print("nVertices Data: \(nVerticesData)")
+        let nVertices = findNumVertices(in: aiNode, in: aiScene)
+        print("nVertices : \(nVertices)")
         if nVertices > 0 {
             if let nodeGeometry = makeSCNGeometry(fromAssimpNode: aiNode, in: &aiScene, withVertices: nVertices, atPath: path) {
                 node.geometry = nodeGeometry
@@ -251,7 +250,7 @@ import scene
         
         print("Node \(String(describing: node.name!)) position is: \(aiNodeMatrix.a4) \(aiNodeMatrix.b4) \(aiNodeMatrix.c4)")
         
-        for i in 0..<aiNode.mNumChildren {
+        for i in 0 ..< aiNode.mNumChildren {
             
             if let aiChildNode = aiNode.mChildren[Int(i)]?.pointee {
                 let childNode = makeSCNNode(fromAssimpNode: aiChildNode, in: &aiScene, atPath: path)
@@ -680,7 +679,7 @@ import scene
      @param aiScene The assimp scene.
      @return An array of geometry elements.
      */
-    public func makeGeometryElementsforNode(_ aiNode: aiNode, in aiScene: aiScene) -> [SCNGeometryElement] {
+    public func makeGeometryElementsForNode(_ aiNode: aiNode, in aiScene: aiScene) -> [SCNGeometryElement] {
         
         var scnGeometryElements: [SCNGeometryElement] = []
         var indexOffset: Int = 0
@@ -880,12 +879,13 @@ import scene
                     }
                     
                     print("Loading cull/double sided mode")
-                    /**
-                     FIXME: The cull mode works only on iOS. Not on OSX.
-                     Hence has been defaulted to Cull Back.
-                     USE AI_MATKEY_TWOSIDED to get the cull mode.
-                     */
-                    material.cullMode = .back
+                    var cullModeRawValue: Int32 = 0
+                    aiGetMaterialIntegerArray(&aiMaterial, AI_MATKEY_TWOSIDED.pKey, AI_MATKEY_TWOSIDED.type, AI_MATKEY_TWOSIDED.index, &cullModeRawValue, &max)
+                    if let cullMode = SCNCullMode(rawValue: SCNCullMode.RawValue(cullModeRawValue)) {
+                         material.cullMode = cullMode
+                    } else {
+                        material.cullMode = .back
+                    }
                     
                     print("Loading shininess")
                     var shininess: Int32 = 0
@@ -901,7 +901,20 @@ import scene
                      Hence has been defaulted to Blinn.
                      USE AI_MATKEY_SHADING_MODEL to get the shading mode.
                      */
-                    material.lightingModel = .blinn
+                    var lightingModelRawValue: Int32 = 0
+                    aiGetMaterialIntegerArray(&aiMaterial, AI_MATKEY_SHADING_MODEL.pKey, AI_MATKEY_SHADING_MODEL.type, AI_MATKEY_SHADING_MODEL.index, &lightingModelRawValue, &max)
+                    
+                    var lightingModel: SCNMaterial.LightingModel
+                    if lightingModelRawValue == 4 {
+                        lightingModel = .blinn
+                    } else if lightingModelRawValue == 3 {
+                        lightingModel = .phong
+                    } else {
+                        lightingModel = .physicallyBased
+                    }
+                    
+                    material.lightingModel = lightingModel
+
                     scnMaterials.append(material)
                     
                 }
@@ -926,7 +939,7 @@ import scene
         let scnGeometrySources = makeGeometrySources(for: aiNode, in: aiScene, withVertices: nVertices)
         if scnGeometrySources.count > 0 {
             
-            let scnGeometryElements = makeGeometryElementsforNode(aiNode, in: aiScene)
+            let scnGeometryElements = makeGeometryElementsForNode(aiNode, in: aiScene)
             let scnGeometry = SCNGeometry(sources: scnGeometrySources, elements: scnGeometryElements)
             let scnMaterials = makeMaterials(for: aiNode, in: &aiScene, atPath: path)
             if scnMaterials.count > 0 {

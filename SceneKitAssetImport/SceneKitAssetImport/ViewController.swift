@@ -74,8 +74,8 @@ class ViewController: NSViewController, CAAnimationDelegate, SCNSceneExportDeleg
             return
         }
         
+        // Clean Scene
         unloadScene()
-        
         sceneView.scene = SCNScene()
         
         if (filePath as NSString).pathExtension == "scn" {
@@ -87,6 +87,9 @@ class ViewController: NSViewController, CAAnimationDelegate, SCNSceneExportDeleg
             } catch let error {
                 print(error)
             }
+            
+            sceneView.scene?.rootNode.addChildNode(modelContainerNode)
+            
         } else if (filePath as NSString).pathExtension == "obj" {
             // Create a MDLAsset from url
             let asset = MDLAsset(url:URL(fileURLWithPath: filePath))
@@ -97,15 +100,15 @@ class ViewController: NSViewController, CAAnimationDelegate, SCNSceneExportDeleg
             let node = SCNNode(mdlObject: object)
             self.modelContainerNode.addChildNode(node)
             
+            sceneView.scene?.rootNode.addChildNode(modelContainerNode)
+            
         } else {
             
             let assetImporter = AssetImporter()
             if let assimpScene = assetImporter.importScene(filePath, postProcessFlags: AssetImporterPostProcessSteps(rawValue: AssetImporterPostProcessSteps.process_FlipUVs.rawValue | AssetImporterPostProcessSteps.process_Triangulate.rawValue)) {
                 
                 if let modelScene = assimpScene.modelScene {
-                    for childNode in modelScene.rootNode.childNodes {
-                        self.modelContainerNode.addChildNode(childNode)
-                    }
+                    sceneView.scene = modelScene
                 }
                 
                 let animationKeys = assimpScene.animationKeys()
@@ -126,7 +129,7 @@ class ViewController: NSViewController, CAAnimationDelegate, SCNSceneExportDeleg
                         settings.delegate = self
                         
                         if var animation = assimpScene.animationScenes.value(forKey: key) as? SCNScene {
-                            self.modelContainerNode.addAnimationScene(&animation, forKey: key, with: &settings)
+                            sceneView.scene?.rootNode.addAnimationScene(&animation, forKey: key, with: &settings)
                         }
                         
                     }
@@ -134,7 +137,7 @@ class ViewController: NSViewController, CAAnimationDelegate, SCNSceneExportDeleg
             }
         }
         
-        sceneView.scene?.rootNode.addChildNode(modelContainerNode)
+        
         sceneDidLoad = true
         
     }
