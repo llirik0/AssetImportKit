@@ -1,4 +1,6 @@
-![3DViewer](Media/3DViewer.png)
+<p align="center">
+    <img src="Media/3DViewer.png", width="480">
+</p>
 
 **3DViewer** is small demo app for downloading 3d models and showing them in [`SceneKit`](https://developer.apple.com/scenekit/) at runtime.
 
