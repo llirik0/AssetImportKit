@@ -1,6 +1,4 @@
-<p align="center">
-    <img src="Media/AssetImportKit.png", width="480">
-</p>
+![AssetImportKit](Media/AssetImportKit.png)
 
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
