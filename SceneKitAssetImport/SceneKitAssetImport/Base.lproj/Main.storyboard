@@ -685,7 +685,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Scenekit Asset Import Example" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA" customClass="BluredWindow" customModule="SceneKitAssetImport" customModuleProvider="target">
+                    <window key="window" title="SceneKit Asset Import" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA" customClass="BluredWindow" customModule="SceneKitAssetImport" customModuleProvider="target">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -720,13 +720,13 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </sceneView>
-                            <button hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L1E-n8-SgB">
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="L1E-n8-SgB">
                                 <rect key="frame" x="147" y="220" width="138" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="138" id="JF1-pG-sx2"/>
                                     <constraint firstAttribute="height" constant="37" id="uyb-vG-QRg"/>
                                 </constraints>
-                                <buttonCell key="cell" type="square" title="Export Scene" bezelStyle="shadowlessSquare" image="Export Scene" imagePosition="left" alignment="center" enabled="NO" imageScaling="proportionallyUpOrDown" inset="2" id="nTv-aY-b3u">
+                                <buttonCell key="cell" type="square" title="Export as .scn" bezelStyle="shadowlessSquare" image="Export Scene" imagePosition="left" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="nTv-aY-b3u">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>

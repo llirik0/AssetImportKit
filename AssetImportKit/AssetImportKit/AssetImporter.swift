@@ -718,70 +718,103 @@ import scene
      @param material The scenekit material.
      @param path The path to the scene file to load.
      */
-    public func makeMaterialProperty(for aiMaterial: inout aiMaterial, with textureInfo: inout TextureInfo, with material: inout SCNMaterial, atPath path: String) {
+    public func makeMaterialProperty(for material: inout SCNMaterial, with textureInfo: TextureInfo) {
         
-        var channel = ".mappingChannel"
-        var wrapS = ".wrapS"
-        var wrapT = ".wrapS"
-        var intensity = ".intensity"
-        var minFilter = ".minificationFilter"
-        var magFilter = ".magnificationFilter"
-        var keyPrefix = ""
-        
-        if textureInfo.textureType == aiTextureType_DIFFUSE {
+        switch textureInfo.textureType {
+        case aiTextureType_DIFFUSE:
             material.diffuse.contents = textureInfo.getMaterialPropertyContents()
-            keyPrefix = "diffuse"
-        }
-        else if textureInfo.textureType == aiTextureType_SPECULAR {
+            material.diffuse.mappingChannel = 0
+            material.diffuse.wrapS = .repeat
+            material.diffuse.wrapT = .repeat
+            material.diffuse.intensity = 1
+            material.diffuse.mipFilter = .linear
+            material.diffuse.magnificationFilter = .linear
+            material.diffuse.minificationFilter = .linear
+        case aiTextureType_SPECULAR:
             material.specular.contents = textureInfo.getMaterialPropertyContents()
-            keyPrefix = "specular"
-        }
-        else if textureInfo.textureType == aiTextureType_AMBIENT {
+            material.specular.mappingChannel = 0
+            material.specular.wrapS = .repeat
+            material.specular.wrapT = .repeat
+            material.specular.intensity = 1
+            material.specular.mipFilter = .linear
+            material.specular.magnificationFilter = .linear
+            material.specular.minificationFilter = .linear
+        case aiTextureType_AMBIENT:
             material.ambient.contents = textureInfo.getMaterialPropertyContents()
-            keyPrefix = "ambient"
-        }
-        else if textureInfo.textureType == aiTextureType_REFLECTION {
+            material.ambient.mappingChannel = 0
+            material.ambient.wrapS = .repeat
+            material.ambient.wrapT = .repeat
+            material.ambient.intensity = 1
+            material.ambient.mipFilter = .linear
+            material.ambient.magnificationFilter = .linear
+            material.ambient.minificationFilter = .linear
+        case aiTextureType_REFLECTION:
             material.reflective.contents = textureInfo.getMaterialPropertyContents()
-            keyPrefix = "reflective"
-        }
-        else if textureInfo.textureType == aiTextureType_EMISSIVE {
+            material.reflective.mappingChannel = 0
+            material.reflective.wrapS = .repeat
+            material.reflective.wrapT = .repeat
+            material.reflective.intensity = 1
+            material.reflective.mipFilter = .linear
+            material.reflective.magnificationFilter = .linear
+            material.reflective.minificationFilter = .linear
+        case aiTextureType_EMISSIVE:
             material.emission.contents = textureInfo.getMaterialPropertyContents()
-            keyPrefix = "emissive"
-        }
-        else if textureInfo.textureType == aiTextureType_OPACITY {
+            material.emission.mappingChannel = 0
+            material.emission.wrapS = .repeat
+            material.emission.wrapT = .repeat
+            material.emission.intensity = 1
+            material.emission.mipFilter = .linear
+            material.emission.magnificationFilter = .linear
+            material.emission.minificationFilter = .linear
+        case aiTextureType_OPACITY:
             material.transparent.contents = textureInfo.getMaterialPropertyContents()
-            keyPrefix = "transparent"
-        }
-        else if textureInfo.textureType == aiTextureType_NORMALS {
+            material.transparent.mappingChannel = 0
+            material.transparent.wrapS = .repeat
+            material.transparent.wrapT = .repeat
+            material.transparent.intensity = 1
+            material.transparent.mipFilter = .linear
+            material.transparent.magnificationFilter = .linear
+            material.transparent.minificationFilter = .linear
+        case aiTextureType_NORMALS:
             material.normal.contents = textureInfo.getMaterialPropertyContents()
-            keyPrefix = "normal"
-        }
-        else if textureInfo.textureType == aiTextureType_HEIGHT {
+            material.normal.mappingChannel = 0
+            material.normal.wrapS = .repeat
+            material.normal.wrapT = .repeat
+            material.normal.intensity = 1
+            material.normal.mipFilter = .linear
+            material.normal.magnificationFilter = .linear
+            material.normal.minificationFilter = .linear
+        case aiTextureType_HEIGHT:
             material.normal.contents = textureInfo.getMaterialPropertyContents()
-            keyPrefix = "normal"
-        }
-        else if textureInfo.textureType == aiTextureType_DISPLACEMENT {
+            material.normal.mappingChannel = 0
+            material.normal.wrapS = .repeat
+            material.normal.wrapT = .repeat
+            material.normal.intensity = 1
+            material.normal.mipFilter = .linear
+            material.normal.magnificationFilter = .linear
+            material.normal.minificationFilter = .linear
+        case aiTextureType_DISPLACEMENT:
             material.normal.contents = textureInfo.getMaterialPropertyContents()
-            keyPrefix = "normal"
-        }
-        else if textureInfo.textureType == aiTextureType_LIGHTMAP {
+            material.normal.mappingChannel = 0
+            material.normal.wrapS = .repeat
+            material.normal.wrapT = .repeat
+            material.normal.intensity = 1
+            material.normal.mipFilter = .linear
+            material.normal.magnificationFilter = .linear
+            material.normal.minificationFilter = .linear
+        case aiTextureType_LIGHTMAP:
             material.ambientOcclusion.contents = textureInfo.getMaterialPropertyContents()
-            keyPrefix = "ambientOcclusion"
+            material.ambientOcclusion.mappingChannel = 0
+            material.ambientOcclusion.wrapS = .repeat
+            material.ambientOcclusion.wrapT = .repeat
+            material.ambientOcclusion.intensity = 1
+            material.ambientOcclusion.mipFilter = .linear
+            material.ambientOcclusion.magnificationFilter = .linear
+            material.ambientOcclusion.minificationFilter = .linear
+        default:
+            break
         }
         
-        // Update the keys
-        channel = keyPrefix + (channel)
-        wrapS = keyPrefix + (wrapS)
-        wrapT = keyPrefix + (wrapT)
-        intensity = keyPrefix + (intensity)
-        minFilter = keyPrefix + (minFilter)
-        magFilter = keyPrefix + (magFilter)
-        material.setValue(0, forKey: channel)
-        material.setValue(SCNWrapMode.repeat, forKey: wrapS)
-        material.setValue(SCNWrapMode.repeat, forKey: wrapT)
-        material.setValue(1, forKey: intensity)
-        material.setValue(SCNFilterMode.linear , forKey: minFilter)
-        material.setValue(SCNFilterMode.linear, forKey: magFilter)
     }
     
     /**
@@ -804,9 +837,14 @@ import scene
                 
                 let space: CGColorSpace = CGColorSpaceCreateDeviceRGB()
                 let components: [CGFloat] = [CGFloat(color.r), CGFloat(color.g), CGFloat(color.b), CGFloat(color.a)]
-                let color = CGColor(colorSpace: space, components: components)
-                material.multiply.contents = color
-                
+                if let color = CGColor(colorSpace: space, components: components) {
+                    #if os(iOS) || os(watchOS) || os(tvOS)
+                    material.multiply.contents = UIColor(cgColor: color)
+                    #elseif os(OSX)
+                    material.multiply.contents = NSColor(cgColor: color)
+                    #endif
+                }
+ 
             }
             
         }
@@ -844,11 +882,13 @@ import scene
                                         aiTextureType_REFLECTION,   aiTextureType_OPACITY,
                                         aiTextureType_NORMALS,      aiTextureType_HEIGHT,
                                         aiTextureType_DISPLACEMENT, aiTextureType_SHININESS]
-                    let textureTypeNames = ["0": "Diffuse", "1": "Specular",
+                    
+                    let textureTypeNames: NSDictionary = ["0": "Diffuse", "1": "Specular",
                                             "2": "Ambient", "3": "Emissive",
                                             "4": "Reflection", "5": "Opacity",
                                             "6": "Normals", "7": "Height",
-                                            "8": "Displacement", "9": "Shininess"] as NSDictionary
+                                            "8": "Displacement", "9": "Shininess"]
+                    
                     for i in 0 ..< textureTypes.count {
                         
                         if let textureTypeName = textureTypeNames.value(forKey: "\(i)") {
@@ -856,8 +896,8 @@ import scene
                             print("Loading texture type : \(textureTypeName)")
                             print("Texture type: \(textureTypes[i])")
                             print("Texture type raw value: \(textureTypes[i].rawValue)")
-                            var textureInfo = TextureInfo(meshIndex: Int(aiMeshIndex), textureType: textureTypes[i], in: &aiScene, atPath: path as NSString)
-                            self.makeMaterialProperty(for: &aiMaterial, with: &textureInfo, with: &material, atPath: path)
+                            let textureInfo = TextureInfo(meshIndex: Int(aiMeshIndex), textureType: textureTypes[i], in: &aiScene, atPath: path as NSString)
+                            self.makeMaterialProperty(for: &material, with: textureInfo)
                             textureInfo.releaseContents()
                             
                         }
@@ -979,7 +1019,13 @@ import scene
             let space = CGColorSpaceCreateDeviceRGB()
             let components: [CGFloat] = [CGFloat(aiColor.r), CGFloat(aiColor.g), CGFloat(aiColor.b), 1.0]
             if let cgColor = CGColor(colorSpace: space, components: components) {
+                #if os(iOS) || os(watchOS) || os(tvOS)
                 light.color = cgColor
+                #elseif os(OSX)
+                if let nsColor = NSColor(cgColor: cgColor) {
+                    light.color = nsColor
+                }
+                #endif
             }
             
         }
@@ -1005,7 +1051,13 @@ import scene
             let space = CGColorSpaceCreateDeviceRGB()
             let components: [CGFloat] = [CGFloat(aiColor.r), CGFloat(aiColor.g), CGFloat(aiColor.b), 1.0]
             if let cgColor = CGColor(colorSpace: space, components: components) {
+                #if os(iOS) || os(watchOS) || os(tvOS)
                 light.color = cgColor
+                #elseif os(OSX)
+                if let nsColor = NSColor(cgColor: cgColor) {
+                    light.color = nsColor
+                }
+                #endif
             }
             
         }
@@ -1036,7 +1088,13 @@ import scene
             let space = CGColorSpaceCreateDeviceRGB()
             let components: [CGFloat] = [CGFloat(aiColor.r), CGFloat(aiColor.g), CGFloat(aiColor.b), 1.0]
             if let cgColor = CGColor(colorSpace: space, components: components) {
+                #if os(iOS) || os(watchOS) || os(tvOS)
                 light.color = cgColor
+                #elseif os(OSX)
+                if let nsColor = NSColor(cgColor: cgColor) {
+                    light.color = nsColor
+                }
+                #endif
             }
             
         }

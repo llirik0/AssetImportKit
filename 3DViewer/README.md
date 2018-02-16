@@ -86,3 +86,7 @@ xcrun scntool --convert yourmodelfile.dae --format c3d --output yourmodelfile-op
 ```
 
 That's it. Upload the compressed file and try to use it.
+
+## License
+
+[3DViewer's license](LICENSE.md) is based on the modified, 3-clause BSD-License.

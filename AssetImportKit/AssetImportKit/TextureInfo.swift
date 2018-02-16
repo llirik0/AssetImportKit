@@ -12,6 +12,12 @@ import CoreImage
 import scene
 import postprocess
 
+#if os(iOS) || os(watchOS) || os(tvOS)
+import UIKit
+#elseif os(OSX)
+import AppKit
+#endif
+
 @objc public class TextureInfo: NSObject {
     
     // MARK: - Texture metadata
@@ -46,7 +52,11 @@ import postprocess
     /**
      The actual color to be applied to a material property.
      */
-    public var color: CGColor?
+    #if os(iOS) || os(watchOS) || os(tvOS)
+    public var color: UIColor?
+    #elseif os(OSX)
+    public var color: NSColor?
+    #endif
     
     /**
      A profile that specifies the interpretation of a color to be applied to
@@ -321,7 +331,13 @@ import postprocess
             self.colorSpace = CGColorSpaceCreateDeviceRGB()
             let components: [CGFloat] = [CGFloat(color.r), CGFloat(color.g), CGFloat(color.b), CGFloat(color.a)]
             if self.colorSpace != nil {
-                self.color = CGColor.init(colorSpace: self.colorSpace!, components: components)
+                if let cgColor = CGColor(colorSpace: self.colorSpace!, components: components) {
+                    #if os(iOS) || os(watchOS) || os(tvOS)
+                    self.color = UIColor(cgColor: cgColor)
+                    #elseif os(OSX)
+                    self.color = NSColor(cgColor: cgColor)
+                    #endif
+                }
             }
             
         }
@@ -344,7 +360,7 @@ import postprocess
             return self.color
         }
     }
-    
+
     /**
      Releases the graphics resources used to generate color or bitmap image to be
      applied to a material property.

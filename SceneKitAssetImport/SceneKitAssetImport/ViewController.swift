@@ -108,8 +108,12 @@ class ViewController: NSViewController, CAAnimationDelegate, SCNSceneExportDeleg
             if let assimpScene = assetImporter.importScene(filePath, postProcessFlags: AssetImporterPostProcessSteps(rawValue: AssetImporterPostProcessSteps.process_FlipUVs.rawValue | AssetImporterPostProcessSteps.process_Triangulate.rawValue)) {
                 
                 if let modelScene = assimpScene.modelScene {
-                    sceneView.scene = modelScene
+                    for childNode in modelScene.rootNode.childNodes {
+                        self.modelContainerNode.addChildNode(childNode)
+                    }
                 }
+                
+                sceneView.scene?.rootNode.addChildNode(modelContainerNode)
                 
                 let animationKeys = assimpScene.animationKeys()
                 // If multiple animations exist, load the first animation
@@ -197,7 +201,7 @@ class ViewController: NSViewController, CAAnimationDelegate, SCNSceneExportDeleg
                 
                 if let sceneFileURL = savePanel.url, let scene = self.sceneView.scene {
                     
-                    let success = scene.write(to: sceneFileURL, options: nil, delegate: nil) { (totalProgress, error, stop) in
+                    let success = scene.write(to: sceneFileURL, options: nil, delegate: self) { (totalProgress, error, stop) in
                         print("Progress \(totalProgress) Error: \(String(describing: error))")
                     }
                     print("Success: \(success)")
