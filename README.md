@@ -28,8 +28,6 @@ This repository includes 2 small demos for macOS and iOS.
 
 <a href="3DViewer/README.md"><img src="Media/iOS Example App.png" width=50%></a><a href="SceneKitAssetImport/README.md"><img src="Media/macOS Example App.png" width=50%></a>
 
-
-
 Requirements
 ---
 
