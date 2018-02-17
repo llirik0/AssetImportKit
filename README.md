@@ -13,7 +13,7 @@
 Features
 ---
 
-AssetImportKit allows you to import ***29 file formats*** directly in SceneKit at runtime.
+AssetImportKit allows you to import ***Assimp supported file formats*** directly in SceneKit at runtime.
 The library supports:
 * Geometry
 * Materials (with color, embedded textures and external textures)
